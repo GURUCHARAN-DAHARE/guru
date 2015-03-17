@@ -83,7 +83,6 @@ cout<<"sent";
 
          cout<<"__________________________________________________________________________"<<endl;
 
-         //g = write_message.length();
          h = write_message.rfind(" ");
 
          from = write_message.substr(5,h-5);
@@ -97,13 +96,9 @@ cout<<"sent";
                 ptr = &file_dataptr[0];
                 send(s , ptr , strlen(ptr), 0 );
 
-                cout<<ptr;//"\n++++++++++++++++++";
+                cout<<ptr;
 
             }
-/*char g = EOF;
-char *p;
-p = &g;*/
-          //send(s ,"q" ,  1 , 0);
 
           in.close();
      }
