@@ -78,7 +78,7 @@ int main(int argc , char *argv[])
                         //Add a NULL terminating character to make it a proper string before printing
         message_got[recv_size] = '\0';
 
-cout<<message_got<<"\n";//////////////////////////////////////////////////////////
+cout<<message_got<<"\n";
 
                 send(new_socket , messagetoclient , strlen(messagetoclient) , 0);
 
@@ -97,9 +97,9 @@ cout<<message_got<<"\n";////////////////////////////////////////////////////////
                     ofstream out;
 
                         message_got_asstr=&message_got[0];
-                        //cout<<"+++++++++++++++++++";
+                        
                         fun = message_got_asstr.substr(0,4);
-                        //cout<<fun;
+                        
                 if(fun == "take")
 
                 {
@@ -108,35 +108,23 @@ cout<<message_got<<"\n";////////////////////////////////////////////////////////
                     dlen = message_got_asstr.rfind(":");
                     to = message_got_asstr.substr((dlen-1),message_got_asstr.length());
                     toptr = &to[0];
-cout<<toptr<<endl;//getch();
+cout<<toptr<<endl;
                     out.open(toptr,ios::out|ios::binary);
 
                     cout<<"taking file\n";
 
-                  // do{
+                 
 
                       while((data_line = recv(new_socket , file_dataptr ,2000 , 0))>0)
                       {
-                         //file_dataptr[data_line]='\0';
-                       //cout<<file_dataptr<<"\n";
-
-     /*g = &file_dataptr[0];
-                        if(g.find(EOF))//file_dataptr[data_line-1]=='\n'&&file_dataptr[data_line-2]=='q')
-                        {
-                            cout<<"+++++++++++++++";
-                            out.write(file_dataptr,data_line-5);
-                            out.close();
-
-                           break;
-                        }*/
-
+                         
                        out.write(file_dataptr,data_line);
-                       //if(file_dataptr[data_line-1]==EOF)break;
+                      
                      }
                 }
                 else{
                 command = strcat(message_got,message);
-                //send(new_socket , messagetoclient , strlen(messagetoclient) , 0);
+                
                 printf("\n~~~~~~Now i am executing your given command~~~~~~~\n");
 
                 system(command);
